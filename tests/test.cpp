@@ -6,8 +6,8 @@
 #include "/home/alexsun8/CLionProjects/lab-04-stack-Alexsun8/sources/source.cpp"
 
 TEST(STACK, first){
-    stack<int> first;
-   // stack<int> sec(std::move(first));
+    // stack<int> first;
+    stack<int> sec(stack<int>());
 stack<int>sec();
 
     sec.push(-80);
@@ -44,11 +44,8 @@ TEST(Stack, second){
     test = "string 1!";
     EXPECT_EQ(test, first.head());
 
- /*   Stack<std::string> second(std::move(first));
-    EXPECT_EQ(test, second.head());
-
-    Stack<std::vector<int>> third;
-    third.push_emplace(4);
-    EXPECT_EQ(4, second.head().size());
+   // Stack<std::vector<int>> third;
+   // third.push_emplace(4);
+   // EXPECT_EQ(4, second.head().size());
 */
 }
