@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 
 #include <header.hpp>
-#include "/home/alexsun8/CLionProjects/lab-04-stack-Alexsun8/sources/source.cpp"
+#include <source.cpp>
 
 TEST(STACK, first){
     // stack<int> first;
