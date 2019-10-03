@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/header.hpp
+cstddef
+-
+iostream
+-
+type_traits
+-
+
+/home/alexsun8/CLionProjects/lab-04-stack-Alexsun8/sources/source.cpp
+header.hpp
+-
+
