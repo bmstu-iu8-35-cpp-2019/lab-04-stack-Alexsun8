@@ -1,5 +1,8 @@
 // Copyright 2019 alexsun.8 <alexsun24@yahoo.com>
 
+#ifndef INCLUDE_REALIZATION_HPP_
+#define INCLUDE_REALIZATION_HPP_
+
 #include <header.hpp>
 
 template <typename T>
@@ -166,3 +169,5 @@ void Stack<T>::push_emplace(Args&&... value) {
     _size++;
   }
 }
+
+#endif  // INCLUDE_REALIZATION_HPP_
