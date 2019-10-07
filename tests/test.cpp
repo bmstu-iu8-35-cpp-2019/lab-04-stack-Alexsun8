@@ -3,6 +3,8 @@
 #include <gtest/gtest.h>
 
 #include <header.hpp>
+#include <realization.hpp>
+
 // #include "../sources/source.cpp"
 
 TEST(STACK, first) {
