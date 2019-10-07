@@ -5,8 +5,6 @@
 #include <header.hpp>
 #include <realization.hpp>
 
-// #include "../sources/source.cpp"
-
 TEST(STACK, first) {
   stack<int> first;
   first.push(0);
