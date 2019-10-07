@@ -75,7 +75,8 @@ void stack<T>::push(const T& value) {
 
 template <typename T>
 void stack<T>::pop() {
-  _size--;
+    if(_size == 0) throw std::logic_error("Стэк уже пустой");
+    _size--;
 }
 
 template <typename T>
