@@ -1,4 +1,4 @@
-// Copyright 2019 alexsun.8 <alexsun24@yahoo.com>
+// Copyright 2019 alexsun8 <alexsun24@yahoo.com>
 
 #ifndef INCLUDE_REALIZATION_HPP_
 #define INCLUDE_REALIZATION_HPP_
@@ -15,7 +15,7 @@ stack<T>::stack() {
 }
 
 template <typename T>
-stack<T>::stack(stack&& SStack) noexcept
+stack<T>::stack(stack &&SStack) noexcept
     : _size(SStack._size), _capacity(SStack._capacity) {
   _data = std::move(SStack._data);
   // проверочка на r-value
@@ -34,7 +34,7 @@ stack<T>::~stack() {
 }
 
 template <typename T>
-void stack<T>::push(T&& value) {
+void stack<T>::push(T &&value) {
   if (_size == _capacity) {
     _capacity = (size_t)(1.5 * (_size + 1));
     // T *temp = new T[_capacity];
@@ -42,19 +42,27 @@ void stack<T>::push(T&& value) {
     for (size_t i = 0; i < _size; i++) {
       temp[i] = _data[i];
     }
-    temp[_size] = value;
-    // delete[] _data;
+    if (std::is_move_assignable<T>()) {
+      temp[_size] = std::move(value);
+    } else {
+      temp[_size] = value;
+    }
     _data = std::move(temp);
     _size++;
     temp = nullptr;
   } else {
-    _data[_size] = value;
+    if (std::is_move_assignable<T>()) {
+      _data[_size] = std::move(value);
+    } else {
+      _data[_size] = value;
+    }
+    //           _data[_size] = value;
     _size++;
   }
 }
 
 template <typename T>
-void stack<T>::push(const T& value) {
+void stack<T>::push(const T &value) {
   if (_size == _capacity) {
     _capacity = (size_t)(1.5 * (_size + 1));
     // T *temp = new T[_capacity];
@@ -80,7 +88,7 @@ void stack<T>::pop() {
 }
 
 template <typename T>
-const T& stack<T>::head() const {
+const T &stack<T>::head() const {
   return _data[_size - 1];
 }
 
@@ -96,7 +104,7 @@ Stack<T>::Stack() {
 }
 
 template <typename T>
-Stack<T>::Stack(Stack&& sttack) noexcept
+Stack<T>::Stack(Stack &&sttack) noexcept
     : _size(sttack._size), _capacity(sttack._capacity) {
   //   if(is_move_assignable(sttack))throw std::logic_error("В конструкторе
   //   Stack");
@@ -116,7 +124,7 @@ Stack<T>::~Stack() {
 }
 
 template <typename T>
-void Stack<T>::push(T&& value) {
+void Stack<T>::push(T &&value) {
   if (_size == _capacity) {
     _capacity = (size_t)(1.5 * (_size + 1));
     // T *temp = new T[_capacity];
@@ -142,13 +150,13 @@ T Stack<T>::pop() {
 }
 
 template <typename T>
-const T& Stack<T>::head() const {
+const T &Stack<T>::head() const {
   return _data[_size - 1];
 }
 
 template <typename T>
 template <typename... Args>
-void Stack<T>::push_emplace(Args&&... value) {
+void Stack<T>::push_emplace(Args &&... value) {
   //  if(is_lvalue_reference(value ...)) throw std::logic_error("В конструкторе
   //  stack не перемещение");
   // if(is_move_assignable(value ...))throw std::logic_error("В push_emplays

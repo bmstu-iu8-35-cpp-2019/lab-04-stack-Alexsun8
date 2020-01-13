@@ -1,4 +1,4 @@
-// Copyright 2019 ALEXSUN.8 <your_email>
+// Copyright 2019 alexsun8 <your_email>
 
 #include <gtest/gtest.h>
 

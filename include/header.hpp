@@ -1,4 +1,4 @@
-// Copyright 2019 alexsun.8 <alexsun24@yahoo.com>
+// Copyright 2019 alexsun8 <alexsun24@yahoo.com>
 
 #ifndef INCLUDE_HEADER_HPP_
 #define INCLUDE_HEADER_HPP_
@@ -7,6 +7,8 @@
 #include <iostream>
 #include <memory>
 #include <type_traits>
+#include <type_traits>
+
 
 template <typename T>
 class stack {
